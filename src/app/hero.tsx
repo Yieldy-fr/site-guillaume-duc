@@ -12,14 +12,13 @@ function Hero() {
             variant="h1"
             color="blue-gray"
             className="mb-4 lg:text-5xl !leading-tight text-3xl"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}          >
-            Welcome to my Web <br /> Development Portofolio!
+            Cabinet Guillaume DUC <br/>
+            Protection sociale et gestion de patrimoine
           </Typography>
           <Typography
             variant="lead"
             className="mb-4 !text-gray-500 md:pr-16 xl:pr-28"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}          >
-            I&apos;m Lily Smith, a passionate web developer based in USA. Here,
-            you&apos;ll get a glimpse of my journey in the world of web
-            development, where creativity meets functionality.
+            Installé à Paris depuis plus de quinze ans, j'ai construit mon parcours professionnel autour d'une conviction simple : la confiance et la qualité de la relation humaine sont au cœur des décisions importantes.
           </Typography>
           <div className="grid">
             <Typography
