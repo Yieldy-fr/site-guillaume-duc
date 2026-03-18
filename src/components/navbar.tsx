@@ -69,7 +69,7 @@ export function Navbar() {
   return (
     <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50 bg-[#fff1e6]"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
       <div className="container mx-auto flex items-center justify-between">
-        <Typography className="text-lg text-[#15315c] font-extrabold"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <Typography className="text-lg text-[#15315c] font-black"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           Cabinet Guillaume&nbsp;DUC
         </Typography>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
