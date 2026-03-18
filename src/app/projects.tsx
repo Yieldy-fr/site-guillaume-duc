@@ -6,62 +6,46 @@ import { Typography } from "@material-tailwind/react";
 const PROJECTS = [
   {
     img: "/image/blog-1.svg",
-    title: "Mobile App Development",
-    desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
+    title: "Excellence",
+    desc: "Je vise des recommandations utiles, argumentees et applicables, dans un niveau d'exigence constant.",
   },
   {
     img: "/image/blog2.svg",
-    title: "Landing Page Development",
-    desc: "Promotional landing page for a  fitness website Summer Campaign. Form development included.",
+    title: "Ethique",
+    desc: "Je privilegie la transparence, la clarte des engagements et la protection de vos interets a long terme.",
   },
   {
     img: "/image/blog3.svg",
-    title: "Mobile App Development",
-    desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
+    title: "Engagement",
+    desc: "Je m'investis personnellement dans chaque dossier avec un suivi regulier et une vraie disponibilite.",
   },
   {
     img: "/image/blog4.svg",
-    title: "E-commerce development",
-    desc: "Ecommerce website offering  access to the latest and greatest gadgets and accessories.",
+    title: "Confiance",
+    desc: "Je construis une relation durable fondee sur l'ecoute, la discretion et le respect de votre situation.",
   },
   {
     img: "/image/blog-1.svg",
-    title: "Mobile App Development",
-    desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
-  },
-  {
-    img: "/image/blog2.svg",
-    title: "Landing Page Development",
-    desc: "Promotional landing page for a  fitness website Summer Campaign. Form development included.",
-  },
-  {
-    img: "/image/blog3.svg",
-    title: "Mobile App Development",
-    desc: "Mobile app designed to help users discover and explore local restaurants and cuisines.",
-  },
-  {
-    img: "/image/blog4.svg",
-    title: "E-commerce development",
-    desc: "Ecommerce website offering  access to the latest and greatest gadgets and accessories.",
+    title: "Reactivite",
+    desc: "Je reponds rapidement pour vous aider a prendre les bonnes decisions au bon moment.",
   },
 ];
 
 export function Projects() {
   return (
-    <section className="py-28 px-8">
+    <section id="valeurs" className="py-28 px-8">
       <div className="container mx-auto mb-20 text-center">
-        <Typography variant="h2" color="blue-gray" className="mb-4"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          My Projects
+        <Typography variant="h2" color="blue-gray" className="font-extrabold mb-4"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          Valeurs du cabinet
         </Typography>
         <Typography
           variant="lead"
           className="mx-auto w-full px-4 font-normal !text-gray-500 lg:w-6/12" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
-          Whether you have a mobile app idea that needs to come to life or a
-          website that requires a facelift, I&apos;m here to turn your digital
-          dreams into reality.
+          Excellence, ethique, engagement, confiance et reactivite guident mon
+          accompagnement au quotidien.
         </Typography>
       </div>
-      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-4">
+      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-5">
         {PROJECTS.map((props, idx) => (
           <ProjectCard key={idx} {...props} />
         ))}

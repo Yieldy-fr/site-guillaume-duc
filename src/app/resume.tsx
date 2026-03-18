@@ -12,39 +12,55 @@ import { ResumeItem } from "@/components";
 const RESUME_ITEMS = [
   {
     icon: ChartBarIcon,
-    children: "Bachelor of Science in Computer Science",
+    children:
+      "Executive MBA (2021-2023), avec une vision stratégique orientée relation client et accompagnement durable.",
   },
   {
     icon: PuzzlePieceIcon,
-    children: "Certified Web Developer ",
+    children:
+      "Formation professionnelle AXA réussie avec les honneurs, dans un cadre reconnu pour son exigence.",
   },
   {
     icon: CursorArrowRaysIcon,
-    children: "Frontend Framework Proficiency Certification",
+    children:
+      "Agent général en assurance, profession libérale réglementée par l'Etat, soumise au devoir de conseil et au secret professionnel.",
   },
 ];
 
 export function Resume() {
   return (
-    <section className="px-8 py-24">
+    <section id="biographie" className="px-8 py-24">
       <div className="container mx-auto grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-2">
         <div className="col-span-1">
-          <Typography variant="h2" color="blue-gray"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            My Resume
+          <Typography className="font-extrabold text-[#15315c]" variant="h2" color="blue-gray"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            Biographie
           </Typography>
-          <Typography className="mb-4 mt-3 w-9/12 font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            Highly skilled and creative Web Developer with 5+ years of
-            experience in crafting visually stunning and functionally robust
-            websites and web applications.
+          <Typography className="mb-4 mt-3 w-full font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            Installé à Paris depuis plus de quinze ans, j&apos;ai construit mon
+            parcours professionnel autour d&apos;une conviction simple: la
+            confiance et la qualité de la relation humaine sont au coeur des
+            décisions importantes.
+          </Typography>
+          <Typography className="mb-4 w-full font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            Mes différentes expériences m&apos;ont conduit à évoluer dans des
+            environnements exigeants, où l&apos;écoute, la rigueur et le sens du
+            service occupent une place essentielle. Elles m&apos;ont permis de
+            développer une approche attentive aux situations individuelles et
+            aux enjeux propres à chacun.
+          </Typography>
+          <Typography className="mb-4 w-full font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            J&apos;accompagne mes clients dans les moments clés de leur vie, avec
+            une attention particulière portée à la protection de leur équilibre
+            financier et de celui de leurs proches.
           </Typography>
           <Button
             variant="text"
             color="gray"
-            className="flex items-center gap-2"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}          >
-            view more
+            className="flex items-center gap-2 text-[#15315c] bg-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}          >
+            Me contacter
             <ArrowRightIcon
               strokeWidth={3}
-              className="h-3.5 w-3.5 text-gray-900"
+              className="h-3.5 w-3.5 text-gray-900" fill="#15315c"
             />
           </Button>
         </div>

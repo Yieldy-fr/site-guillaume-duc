@@ -46,7 +46,7 @@ export function Testimonial() {
               <div className="flex items-center gap-4">
                 <Avatar
                   variant="rounded"
-                  src="/image/avatar1.jpg"
+                  src="image/Event-Guillaume-DUC_Meline-07-2025_258.jpg"
                   alt="spotify"
                   size="sm"
                   className={`cursor-pointer ${active === 1 ? "opacity-100" : "opacity-50"}`}

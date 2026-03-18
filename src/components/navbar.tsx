@@ -7,28 +7,30 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import {
-  RectangleStackIcon,
-  UserCircleIcon,
-  CommandLineIcon,
-  Squares2X2Icon,
   XMarkIcon,
   Bars3Icon,
-} from "@heroicons/react/24/solid";
+  BookOpenIcon,
+  LightBulbIcon,
+  PhoneIcon,
+  HeartIcon
+} from "@heroicons/react/24/outline";
 
 const NAV_MENU = [
   {
-    name: "Page",
-    icon: RectangleStackIcon,
+    name: "Biographie",
+    icon: BookOpenIcon,
+    href: "#biographie",
   },
   {
-    name: "Account",
-    icon: UserCircleIcon,
+    name: "Expertise",
+    icon: LightBulbIcon,
+    href: "#expertise",
   },
   {
-    name: "Docs",
-    icon: CommandLineIcon,
-    href: "https://www.material-tailwind.com/docs/react/installation",
-  },
+    name: "Partenaires",
+    icon: HeartIcon,
+    href: "#partenaires",
+  }
 ];
 
 interface NavItemProps {
@@ -42,7 +44,7 @@ function NavItem({ children, href }: NavItemProps) {
       <Typography
         as="a"
         href={href || "#"}
-        target={href ? "_blank" : "_self"}
+        target="_self"
         variant="paragraph"
         color="gray"
         className="flex items-center gap-2 font-medium text-gray-900"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}      >
@@ -65,23 +67,23 @@ export function Navbar() {
   }, []);
 
   return (
-    <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+    <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50 bg-[#fff1e6]"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
       <div className="container mx-auto flex items-center justify-between">
-        <Typography color="blue-gray" className="text-lg font-bold"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          Material Tailwind
+        <Typography className="text-lg text-[#15315c] font-extrabold"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          Cabinet Guillaume&nbsp;DUC
         </Typography>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href}>
+              {/* outline version */}
               <Icon className="h-5 w-5" />
               {name}
             </NavItem>
           ))}
         </ul>
         <div className="hidden items-center gap-2 lg:flex">
-          <Button variant="text"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Sign In</Button>
-          <a href="https://www.material-tailwind.com/blocks" target="_blank">
-            <Button color="gray"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>blocks</Button>
+          <a href="#coordonnees">
+            <Button className="bg-[#15315c] hover:bg-[#15315c]/90 text-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Prendre rendez-vous</Button>
           </a>
         </div>
         <IconButton
@@ -99,17 +101,16 @@ export function Navbar() {
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
           <ul className="flex flex-col gap-4">
-            {NAV_MENU.map(({ name, icon: Icon }) => (
-              <NavItem key={name}>
+            {NAV_MENU.map(({ name, icon: Icon, href }) => (
+              <NavItem key={name} href={href}>
                 <Icon className="h-5 w-5" />
                 {name}
               </NavItem>
             ))}
           </ul>
           <div className="mt-6 mb-4 flex items-center gap-2">
-            <Button variant="text"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Sign In</Button>
-            <a href="https://www.material-tailwind.com/blocks" target="_blank">
-              <Button color="gray"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>blocks</Button>
+            <a href="#coordonnees">
+              <Button className="bg-[#15315c] hover:bg-[#15315c]/90 text-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Prendre rendez-vous</Button>
             </a>
           </div>
         </div>

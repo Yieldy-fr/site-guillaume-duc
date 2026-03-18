@@ -11,67 +11,123 @@ import {
 } from "@heroicons/react/24/solid";
 import { SkillCard } from "@/components";
 
-const SKILLS = [
+const PROFESSIONAL_EXPERTISE = [
   {
     icon: RectangleGroupIcon,
-    title: "Frontend Web Development:",
+    title: "Assurance sante et prevoyance collectives",
     children:
-      "Creating beautiful and functional web experiences is my forte. Using the latest technologies and best practices, I design and build websites that captivate and engage users.",
+      "Protection sociale collective adaptee aux besoins de votre entreprise et de vos equipes.",
   },
   {
     icon: FingerPrintIcon,
-    title: "Mobile App Development",
+    title:
+      "Assurance sante et prevoyance des chefs d'entreprise et professions liberales",
     children:
-      " I specialize in creating responsive and intuitive mobile apps that work seamlessly across iOS & Android devices. From concept to deployment, I handle every stage of the development process.",
+      "Solutions dediees au dirigeant pour securiser ses revenus et son activite.",
   },
   {
     icon: SwatchIcon,
-    title: "Technology Stack",
+    title: "Epargne salariale",
     children:
-      "I'm well-versed in the industry's most popular frontend technologies, including HTML5, CSS3, JavaScript, and frameworks like React and React Native.",
+      "Mise en place de dispositifs d'epargne attractifs pour valoriser et fideliser vos collaborateurs.",
   },
   {
     icon: HashtagIcon,
-    title: " Web Optimization",
+    title: "PER collectifs",
     children:
-      "Performance matters. I optimize websites and apps for speed, ensuring your users enjoy a fast and responsive experience, which in turn boosts user satisfaction and SEO rankings.",
+      "Construction de solutions de retraite collective performantes et lisibles pour vos equipes.",
   },
   {
     icon: EyeIcon,
-    title: "User-Centric Design",
+    title: "Remuneration du dirigeant",
     children:
-      "My development goes hand-in-hand with an eye for design. I create user interfaces that are not only functional but also aesthetically pleasing, providing a seamless and enjoyable user journey.",
+      "Arbitrage entre remuneration immediate, protection et strategie long terme.",
   },
   {
     icon: DocumentTextIcon,
-    title: "Testing and Quality Assurance",
+    title: "Retraite individuelle, Retraite Madelin et Epargne par capitalisation",
     children:
-      "I rigorously test and debug applications to guarantee a bug-free and secure environment for users. Your peace of mind is as important to me as the functionality of your project.",
+      "Organisation progressive de la retraite du dirigeant selon ses objectifs patrimoniaux.",
+  },
+];
+
+const INDIVIDUAL_EXPERTISE = [
+  {
+    icon: RectangleGroupIcon,
+    title: "Preparer sa retraite",
+    children:
+      "Projection de vos besoins futurs et mise en place d'une strategie d'epargne adaptee.",
+  },
+  {
+    icon: FingerPrintIcon,
+    title: "Reduire sa pression fiscale",
+    children:
+      "Optimisation fiscale dans le respect de votre situation et de vos objectifs.",
+  },
+  {
+    icon: SwatchIcon,
+    title: "Proteger sa famille",
+    children:
+      "Couverture des risques de la vie pour securiser l'equilibre de vos proches.",
+  },
+  {
+    icon: HashtagIcon,
+    title: "Transmettre a ses enfants",
+    children:
+      "Preparation de la transmission patrimoniale avec une approche claire et anticipee.",
+  },
+  {
+    icon: EyeIcon,
+    title: "Constituer un patrimoine immobilier et/ou financier",
+    children:
+      "Structuration progressive de vos actifs pour renforcer votre independance financiere.",
+  },
+  {
+    icon: DocumentTextIcon,
+    title: "Assurances Obseques",
+    children:
+      "Solutions dediees pour soulager vos proches et organiser sereinement les frais lies aux obseques.",
   },
 ];
 
 export function Skills() {
   return (
-    <section className="px-8">
-      <div className="container mx-auto mb-20 text-center">
-        <Typography color="blue-gray" className="mb-2 font-bold uppercase"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          my skills
+    <section id="expertise" className="px-8 py-24">
+      <div className="container mx-auto pb-20 text-center">
+        <Typography className="mb-2 font-bold uppercase text-[#15315c]"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          Domaines d&apos;expertise
         </Typography>
-        <Typography variant="h1" color="blue-gray" className="mb-4"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          What I do
+        <Typography variant="h1" className="mb-4 font-extrabold text-[#15315c]"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          J&apos;accompagne professionnels et particuliers
         </Typography>
         <Typography
           variant="lead"
           className="mx-auto w-full !text-gray-500 lg:w-10/12"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
-          I&apos;m not just a developer; I&apos;m a digital dreamweaver.
-          Crafting immersive online experiences is not just a job but my
-          calling. Discover below how I can help you.
+          Chaque expertise est traitee de facon specifique, avec une
+          recommandation adaptee a votre situation.
         </Typography>
       </div>
-      <div className="container mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-        {SKILLS.map((props, idx) => (
-          <SkillCard key={idx} {...props} />
-        ))}
+
+      <div className="container mx-auto pb-24">
+        <Typography variant="h3" className="mb-6 text-center text-[#15315c]"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          Auprès des Professionnels
+        </Typography>
+        <div className="grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+          {PROFESSIONAL_EXPERTISE.map((props, idx) => (
+            <SkillCard key={`pro-${idx}`} {...props} />
+          ))}
+        </div>
+      </div>
+
+      <div className="container mx-auto">
+        <Typography variant="h3" className="mb-6 text-center text-[#15315c]"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          Auprès des Particuliers
+        </Typography>
+        <div className="grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+          {INDIVIDUAL_EXPERTISE.map((props, idx) => (
+            <SkillCard key={`part-${idx}`} {...props} />
+          ))}
+        </div>
       </div>
     </section>
   );

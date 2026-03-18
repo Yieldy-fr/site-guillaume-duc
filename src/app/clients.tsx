@@ -1,34 +1,29 @@
 "use client";
 
-import Image from "next/image";
 import { Typography } from "@material-tailwind/react";
 
 const CLIENTS = [
-  "coinbase",
-  "spotify",
-  "pinterest",
-  "google",
-  "amazon",
-  "netflix",
+  "AXA",
+  "Drouot Estate",
+  "AGIPI",
+  "AXA Gestion Privée",
 ];
 
 export function Clients() {
   return (
-    <section className="px-8 py-28">
+    <section id="partenaires" className="px-8 py-28">
       <div className="container mx-auto text-center">
-        <Typography variant="h6" color="blue-gray" className="mb-8" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          My awesome clients
+        <Typography variant="h1" className="mb-8 font-extrabold text-[#15315c]" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          Nos partenaires
         </Typography>
-        <div className="flex flex-wrap items-center justify-center gap-6">
-          {CLIENTS.map((logo, key) => (
-            <Image
-              key={key}
-              alt={logo}
-              width={768}
-              height={768}
-              className="w-40"
-              src={`/logos/logo-${logo}.svg`}
-            />
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {CLIENTS.map((partner) => (
+            <div
+              key={partner}
+              className="rounded-lg border border-gray-200 px-6 py-8 text-lg font-semibold text-blue-gray-900"
+            >
+              {partner}
+            </div>
           ))}
         </div>
       </div>
