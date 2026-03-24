@@ -6,24 +6,28 @@ import {
   PuzzlePieceIcon,
   CursorArrowRaysIcon,
   ArrowRightIcon,
+  AcademicCapIcon,
+  CheckCircleIcon,
+  ShieldCheckIcon,
+  LightBulbIcon,
 } from "@heroicons/react/24/solid";
 import { ResumeItem } from "@/components";
 
 const RESUME_ITEMS = [
   {
-    icon: ChartBarIcon,
+    icon: AcademicCapIcon,
     children:
       "Executive MBA (2021-2023), avec une vision stratégique orientée relation client et accompagnement durable.",
   },
   {
-    icon: PuzzlePieceIcon,
+    icon: LightBulbIcon,
     children:
       "Formation professionnelle AXA réussie avec les honneurs, dans un cadre reconnu pour son exigence.",
   },
   {
-    icon: CursorArrowRaysIcon,
+    icon: ShieldCheckIcon,
     children:
-      "Agent général en assurance, profession libérale réglementée par l'Etat, soumise au devoir de conseil et au secret professionnel.",
+      "Agent général en assurance, profession libérale réglementée par l'État, soumise au devoir de conseil et au secret professionnel.",
   },
 ];
 
@@ -38,7 +42,7 @@ export function Resume() {
           <Typography className="mb-4 mt-3 w-full font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             Installé à Paris depuis plus de quinze ans, j&apos;ai construit mon
             parcours professionnel autour d&apos;une conviction simple: la
-            confiance et la qualité de la relation humaine sont au coeur des
+            confiance et la qualité de la relation humaine sont au cœur des
             décisions importantes.
           </Typography>
           <Typography className="mb-4 w-full font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
@@ -54,6 +58,9 @@ export function Resume() {
             financier et de celui de leurs proches.
           </Typography>
           <Button
+            onClick={
+              () => window.location.href = "#coordonnees"
+            }
             variant="text"
             color="gray"
             className="flex items-center gap-2 text-[#15315c] bg-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}          >

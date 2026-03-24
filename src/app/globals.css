@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* make everything fade in on scroll */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 * {
     font-family: 'Source Serif 4', sans-serif !important;
+    scroll-behavior: smooth !important;
 }
 
 h1, h2, h3, h4, h5, h6 {

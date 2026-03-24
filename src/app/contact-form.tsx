@@ -8,11 +8,34 @@ import {
   Input,
   Textarea,
   Button,
-  IconButton
+  IconButton,
+  Checkbox
 } from "@material-tailwind/react";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/solid";
 
 export function ContactForm() {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      firstName: formData.get("first-name"),
+      lastName: formData.get("last-name"),
+      email: formData.get("email"),
+      type: formData.get("type"),
+      message: formData.get("message"),
+      consent: formData.get("consent") === "on",
+    };
+
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+  };
+
   return (
     <section id="coordonnees" className="px-8 py-16">
       <div className="container mx-auto mb-20 text-center">
@@ -45,9 +68,9 @@ export function ContactForm() {
               </div>
               <div className="flex my-2 gap-5">
                 <EnvelopeIcon className="h-6 w-6 text-white" />
-                <Typography variant="h6" color="white" className="mb-2" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                  <a target="blank_" href="mailto:agencea2p.guillaume.duc@axa.fr" className="text-white hover:text-blue-500">
-                    agencea2p.guillaume.duc@axa.fr
+                <Typography variant="h6" color="white" className="mb-2 break-words text-wrap" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                  <a target="blank_" href="mailto:agencea2p.guillaume.duc@axa.fr" className="text-white hover:text-blue-500 break-words">
+                    agencea2p . guillaume . duc@axa.fr
                   </a>
                 </Typography>
               </div>
@@ -80,10 +103,11 @@ export function ContactForm() {
               </div> */}
             </div>
             <div className="w-full mt-8 md:mt-0 md:px-10 col-span-4 h-full p-5">
-              <form action="#">
+              <form onSubmit={handleSubmit}>
                 <div className="mb-8 grid gap-4 lg:grid-cols-2">
                   {/* @ts-ignore */}
                   <Input
+                    required
                     size="lg"
                     variant="static"
                     label="Prénom"
@@ -99,6 +123,7 @@ export function ContactForm() {
                   />
                   {/* @ts-ignore */}
                   <Input
+                    required
                     color="gray"
                     size="lg"
                     variant="static"
@@ -116,6 +141,7 @@ export function ContactForm() {
                 </div>
                 {/* @ts-ignore */}
                 <Input
+                  required
                   color="gray"
                   size="lg"
                   variant="static"
@@ -123,33 +149,36 @@ export function ContactForm() {
                   name="email"
                   placeholder="ex. jean.dupont@example.com"
                   className="text-[#15315c] font-bold"
-                    labelProps={{
-                      className: "!text-[#15315c] !font-bold",
-                    }}
+                  labelProps={{
+                    className: "!text-[#15315c] !font-bold",
+                  }}
                   containerProps={{
                     className: "!min-w-full mb-8",
                   }}
                 />
                 <Typography
+
                   variant="lead"
                   className="!text-[#15315c] font-bold text-sm mb-2" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}
                 >
-                  Votre besoin principal
+                  Votre besoin principal <span className="text-[#ff0000]">*</span>
                 </Typography>
                 <div className="-ml-3 mb-14 ">
                   {/* @ts-ignore */}
                   <Radio
-                    labelProps={{className: "!text-gray-500 !font-medium"}}
+                    required
+                    labelProps={{ className: "!text-gray-500 !font-medium" }}
                     name="type"
                     label="Protection sociale"
+                    value={'protection-sociale'}
                     defaultChecked
                   />
                   {/* @ts-ignore */}
-                  <Radio labelProps={{className: "!text-gray-500 !font-medium"}} name="type" label="Gestion de patrimoine" />
+                  <Radio required labelProps={{ className: "!text-gray-500 !font-medium" }} name="type" label="Gestion de patrimoine" value={'gestion-patrimoine'} />
                   {/* @ts-ignore */}
-                  <Radio labelProps={{className: "!text-gray-500 !font-medium"}} name="type" label="Retraite et fiscalité" />
+                  <Radio required labelProps={{ className: "!text-gray-500 !font-medium" }} name="type" label="Retraite et fiscalité" value={'retraite-et-fiscalite'} />
                   {/* @ts-ignore */}
-                  <Radio labelProps={{className: "!text-gray-500 !font-medium"}} name="type" label="Autre" />
+                  <Radio required labelProps={{ className: "!text-gray-500 !font-medium" }} name="type" label="Autre" value={'autre'} />
                 </div>
                 {/* @ts-ignore */}
                 <Textarea
@@ -157,18 +186,58 @@ export function ContactForm() {
                   size="lg"
                   variant="static"
                   label="Votre message"
-                  name="first-name"
+                  name="message"
                   placeholder="Décrivez brièvement votre besoin ou votre projet"
                   className="text-[#15315c] font-bold"
-                    labelProps={{
-                      className: "!text-[#15315c] !font-bold",
-                    }}
+                  labelProps={{
+                    className: "!text-[#15315c] !font-bold",
+                  }}
                   containerProps={{
                     className: "!min-w-full mb-8",
                   }}
                 />
+                {/* <label className="mb-8 flex items-start gap-3 text-sm text-gray-600">
+                  <input
+                    type="checkbox"
+                    name="consent"
+                    required
+                    className="mt-1 h-4 w-4 rounded border-gray-300 accent-[#15315c]"
+                  />
+                  <span>
+                    J&apos;accepte d&apos;être recontacté(e) et que mes données
+                    soient enregistrées afin de traiter ma demande.
+                  </span>
+                </label> */}
+
+                {/* <div className="mb-8 flex items-start gap-3 text-sm text-gray-600">
+                  <input
+                    type="checkbox"
+                    name="consent"
+                    id="consent"
+                    required
+                    className="mt-1 rounded border-gray-300 accent-[#15315c]"
+                  />
+                  <label className="text-sm text-gray-600" htmlFor="consent">
+                    * J&apos;accepte d&apos;être recontacté(e) et que mes données
+                    soient enregistrées afin de traiter ma demande.
+                  </label>
+                </div> */}
+                <div className="mb-8 flex items-center flex-row gap-1 text-sm text-gray-600">
+                  {/* @ts-ignore */}
+                  <Checkbox
+                    name="consent"
+                    id="consent"
+                    required
+                    className="h-6 w-6 rounded-lg border-gray-900/20 transition-all"
+                  />
+                  <label htmlFor="consent" className="ml-2 text-sm text-gray-600">
+                    <span className="text-[#ff0000]">*</span> J&apos;accepte d&apos;être recontacté(e) et que mes données
+                    soient enregistrées afin de traiter ma demande.
+                  </label>
+                </div>
+
                 <div className="w-full flex justify-end">
-                  <Button className="w-full md:w-fit bg-[#15315c] hover:bg-[#15315c]/90 text-white" size="md" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                  <Button type="submit" className="w-full md:w-fit bg-[#15315c] hover:bg-[#15315c]/90 text-white" size="md" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                     Envoyer
                   </Button>
                 </div>

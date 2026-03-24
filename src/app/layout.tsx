@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import { Layout, FixedPlugin } from "@/components";
 
 export const metadata: Metadata = {
-  title: "Next.js + Tailwind Portfolio Page",
+  title: "Cabinet Guillaume DUC - Expert en gestion de patrimoine",
   description:
-    "Introducing Tailwind Portfolio Page, a versatile and stylish portfolio template built on the foundation of Tailwind CSS and Material Tailwind.",
+    "Découvrez le Cabinet Guillaume DUC, votre partenaire de confiance en gestion de patrimoine. Nous offrons des conseils personnalisés pour optimiser votre patrimoine et atteindre vos objectifs financiers. Contactez-nous dès aujourd'hui pour une consultation gratuite.",
 };
 
 export default function RootLayout({
@@ -25,9 +25,10 @@ export default function RootLayout({
           data-site="cabinet-guillaume-duc.fr"
           src="https://api.nepcha.com/js/nepcha-analytics.js"
         ></script>
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/logos/logo_axa.svg" type="image/png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`scroll-smooth`}>
+      <body className={`scroll-smooth h-full w-full`}>
         <Layout>
           {children}
         </Layout>

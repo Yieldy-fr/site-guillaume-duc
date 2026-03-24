@@ -16,7 +16,7 @@ export function Footer() {
             &copy; {CURRENT_YEAR} Cabinet Guillaume DUC - Mandataire exclusif
             AXA - ORIAS 2500 4060
           </Typography>
-          <ul className="flex gap-8 items-center">
+          <ul className="flex flex-wrap gap-8 items-center justify-center">
             {LINKS.map((link) => (
               <li key={link.label}>
                 <Typography

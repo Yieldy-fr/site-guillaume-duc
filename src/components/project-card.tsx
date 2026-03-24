@@ -8,38 +8,27 @@ import {
 } from "@material-tailwind/react";
 
 interface ProjectCardProps {
-  img: string;
+  icon: React.ElementType;
   title: string;
   desc: string;
 }
 
-export function ProjectCard({ img, title, desc }: ProjectCardProps) {
+export function ProjectCard({ icon: Icon, title, desc }: ProjectCardProps) {
   return (
-    <Card color="transparent" shadow={false}  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-      <CardHeader floated={false} className="mx-0 mt-0 mb-6 h-48"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-        <Image
-          src={img}
-          alt={title}
-          width={768}
-          height={768}
-          className="h-full w-full object-cover"
-        />
+    <Card color="transparent" className="hover:scale-105 transition-all duration-300" shadow={false} placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+      <CardHeader floated={false} shadow={false} className="mx-0 mt-0 mb-auto h-auto" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <div className="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full bg-[#15315c] text-white shadow">
+          <Icon className="h-6 w-6" strokeWidth={2} />
+        </div>
       </CardHeader>
-      <CardBody className="p-0"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-        <a
-          href="#"
-          className="text-blue-gray-900 transition-colors hover:text-gray-800"
-        >
-          <Typography variant="h5" className="mb-2"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            {title}
-          </Typography>
-        </a>
-        <Typography className="mb-6 font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+      <CardBody className="p-0 text-center" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+
+        <Typography variant="h5" className="mb-2 text-[#15315c]" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          {title}
+        </Typography>
+        <Typography className="mb-6 font-normal !text-gray-500" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {desc}
         </Typography>
-        <Button color="gray" size="sm"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          En savoir plus
-        </Button>
       </CardBody>
     </Card>
   );
