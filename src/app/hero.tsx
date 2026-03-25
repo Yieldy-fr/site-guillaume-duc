@@ -49,7 +49,7 @@ function Hero() {
           height={1024}
           alt="Cabinet de conseil en assurance"
           src="/image/guillaume_duc_photo_main.jpg"
-          className="h-[36rem] w-full rounded-xl object-cover"
+          className="h-[36rem] w-full rounded-xl object-cover object-right-top"
         />
       </div>
     </header>
