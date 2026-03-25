@@ -48,7 +48,7 @@ function Hero() {
           width={1024}
           height={1024}
           alt="Cabinet de conseil en assurance"
-          src="/image/Event-Guillaume-DUC_Meline-07-2025_258.jpg"
+          src="/image/guillaume_duc_photo_main.jpg"
           className="h-[36rem] w-full rounded-xl object-cover"
         />
       </div>
