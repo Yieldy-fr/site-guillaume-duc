@@ -3,6 +3,7 @@
 export * from "./navbar";
 export * from "./footer";
 export * from "./layout";
+export * from "./chatbot-script";
 export * from "./project-card";
 export * from "./resume-item";
 export * from "./skill-card";
