@@ -8,27 +8,27 @@ const PROJECTS = [
   {
     icon: ShieldCheckIcon,
     title: "Excellence",
-    desc: "Je vise des recommandations utiles, argumentées et applicables, avec un niveau d'exigence constant.",
+    desc: "Je ne vous dirai jamais ce qui sonne bien : je vous dirai ce qui est juste pour votre situation. Même si c'est plus long à expliquer.",
   },
   {
     icon: FaceSmileIcon,
     title: "Éthique",
-    desc: "Je privilégie la transparence, la clarté des engagements et la protection de vos intérêts à long terme.",
+    desc: "Votre intérêt passe avant tout le reste. Je préfère vous dire non à un produit qui ne vous convient pas plutôt que de vous faire signer quelque chose dont vous n'avez pas besoin.",
   },
   {
     icon: HandRaisedIcon,
     title: "Engagement",
-    desc: "Je m'investis personnellement dans chaque dossier avec un suivi régulier et une vraie disponibilité.",
+    desc: "Je suis là après la signature, pas seulement avant. Votre situation évolue : mon accompagnement aussi.",
   },
   {
     icon: HeartIcon,
     title: "Confiance",
-    desc: "Je construis une relation durable fondée sur l'écoute, la discrétion et le respect de votre situation.",
+    desc: "Il n'y a pas de questions stupides en matière d'argent et de protection. Il y a juste des questions qu'on n'a pas encore posées. Je suis là pour toutes les accueillir.",
   },
   {
     icon: PhoneIcon,
     title: "Réactivité",
-    desc: "Je réponds rapidement pour vous aider à prendre les bonnes décisions au bon moment.",
+    desc: "Une question, un doute, un changement de situation : je réponds. Rapidement et clairement. Parce que le bon moment pour décider, c'est rarement demain.",
   },
 ];
 
@@ -37,11 +37,11 @@ export function Projects() {
     <section id="valeurs" className="py-28 px-8">
       <div className="container mx-auto mb-20 text-center">
         <Typography variant="h2" color="blue-gray" className="font-extrabold mb-4 text-[#15315c]"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          Valeurs du cabinet
+          Ce que vous pouvez attendre de moi, concrètement.
         </Typography>
         <Typography
           variant="lead"
-          className="mx-auto w-full px-4 font-normal !text-gray-500 lg:w-6/12" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
+          className="mx-auto w-full px-4 font-normal !text-gray-700 lg:w-6/12" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
           Les valeurs qui guident mon
           accompagnement au quotidien.
         </Typography>

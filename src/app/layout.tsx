@@ -4,9 +4,10 @@ import Script from "next/script";
 import { Layout, ChatbotScript } from "@/components";
 
 export const metadata: Metadata = {
-  title: "Cabinet Guillaume DUC - Expert en gestion de patrimoine",
+  title:
+    "Guillaume Duc — Je vous aide à protéger ceux que vous aimez | Patrimoine & Assurance, Paris",
   description:
-    "Découvrez le Cabinet Guillaume DUC, votre partenaire de confiance en gestion de patrimoine. Nous offrons des conseils personnalisés pour optimiser votre patrimoine et atteindre vos objectifs financiers. Contactez-nous dès aujourd'hui pour une consultation gratuite.",
+    "Protéger vos proches, préparer votre retraite, anticiper les étapes de la vie — Guillaume Duc vous accompagne avec clarté, sans jargon et sans pression. Agent général AXA à Paris. Prenez rendez-vous.",
 };
 
 export default function RootLayout({

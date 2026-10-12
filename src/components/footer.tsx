@@ -1,8 +1,9 @@
 import { Typography, Button } from "@material-tailwind/react";
 
 const LINKS = [
-  { label: "Biographie", href: "#biographie" },
-  { label: "Expertise", href: "#expertise" },
+  { label: "Mon approche", href: "#biographie" },
+  { label: "Accompagnement", href: "#expertise" },
+  { label: "Mes engagements", href: "#valeurs" },
   { label: "Partenaires", href: "#partenaires" },
 ];
 const CURRENT_YEAR = new Date().getFullYear();
@@ -29,7 +30,7 @@ export function Footer() {
               </li>
             ))}
             <a href="#coordonnees">
-              <Button className="bg-[#15315c] hover:bg-[#15315c]/90 text-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Contact</Button>
+              <Button className="bg-[#15315c] hover:bg-[#15315c]/90 text-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>On en parle&nbsp;?</Button>
             </a>
           </ul>
         </div>

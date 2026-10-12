@@ -12,7 +12,7 @@ export function ResumeItem({ icon: Icon, children }: ResumeItemProps) {
         className="h-12 w-12 shrink-0 items-center justify-center !rounded-lg bg-[#15315c]"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}      >
         <Icon className="h-6 w-6" strokeWidth={2} fill="white"/>
       </Card>
-      <Typography className="w-full font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+      <Typography className="w-full font-normal !text-gray-700"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         {children}
       </Typography>
     </div>

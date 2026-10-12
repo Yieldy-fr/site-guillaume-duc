@@ -26,7 +26,7 @@ export function ProjectCard({ icon: Icon, title, desc }: ProjectCardProps) {
         <Typography variant="h5" className="mb-2 text-[#15315c]" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {title}
         </Typography>
-        <Typography className="mb-6 font-normal !text-gray-500" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <Typography className="mb-6 font-normal !text-gray-700" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {desc}
         </Typography>
       </CardBody>

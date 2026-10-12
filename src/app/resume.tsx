@@ -17,17 +17,17 @@ const RESUME_ITEMS = [
   {
     icon: AcademicCapIcon,
     children:
-      "Executive MBA (2021-2023), avec une vision stratégique orientée relation client et accompagnement durable.",
+      "Executive MBA — pour une vision stratégique au service de vos intérêts.",
   },
   {
     icon: LightBulbIcon,
     children:
-      "Formation professionnelle AXA réussie avec les honneurs, dans un cadre reconnu pour son exigence.",
+      "Formation AXA — réussie avec les honneurs, dans un cadre reconnu pour son exigence.",
   },
   {
     icon: ShieldCheckIcon,
     children:
-      "Agent général en assurance, profession libérale réglementée par l'État, soumise au devoir de conseil et au secret professionnel.",
+      "Agent général en assurance — profession réglementée, soumise au devoir de conseil et au secret professionnel. Je suis là pour vous, pas pour un portefeuille.",
   },
 ];
 
@@ -37,25 +37,26 @@ export function Resume() {
       <div className="container mx-auto grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-2">
         <div className="col-span-1">
           <Typography className="font-extrabold text-[#15315c]" variant="h2" color="blue-gray"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            Biographie
+            Pourquoi ce métier ? Pourquoi cette façon de l&apos;exercer ?
           </Typography>
-          <Typography className="mb-4 mt-3 w-full font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            Installé à Paris depuis plus de quinze ans, j&apos;ai construit mon
-            parcours professionnel autour d&apos;une conviction simple: la
-            confiance et la qualité de la relation humaine sont au cœur des
-            décisions importantes.
+          <Typography className="mb-4 mt-3 w-full font-normal !text-gray-700"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            Installé à Paris depuis plus de quinze ans, j&apos;ai construit ce
+            métier autour d&apos;une conviction qui ne m&apos;a jamais quitté : les
+            grandes décisions, celles qui concernent notre famille, notre
+            avenir, nos proches, méritent un conseiller qui prend le temps de
+            comprendre avant de proposer.
           </Typography>
-          <Typography className="mb-4 w-full font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            Mes différentes expériences m&apos;ont conduit à évoluer dans des
-            environnements exigeants, où l&apos;écoute, la rigueur et le sens du
-            service occupent une place essentielle. Elles m&apos;ont permis de
-            développer une approche attentive aux situations individuelles et
-            aux enjeux propres à chacun.
+          <Typography className="mb-4 w-full font-normal !text-gray-700"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            Chaque étape de vie rebat les cartes. Une naissance, un changement
+            d&apos;activité, une séparation, un problème de santé, ces
+            moments-là méritent qu&apos;on y ait réfléchi avant. Mon rôle,
+            c&apos;est d&apos;être là à chaque fois que vous avez besoin d&apos;y
+            voir plus clair.
           </Typography>
-          <Typography className="mb-4 w-full font-normal !text-gray-500"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            J&apos;accompagne mes clients dans les moments clés de leur vie, avec
-            une attention particulière portée à la protection de leur équilibre
-            financier et de celui de leurs proches.
+          <Typography className="mb-4 w-full font-normal !text-gray-700"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            Je ne crois pas aux solutions universelles. Je crois aux solutions
+            adaptées à chaque situation, expliquées simplement, mises en place
+            sans attendre.
           </Typography>
           <Button
             onClick={

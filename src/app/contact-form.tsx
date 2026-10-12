@@ -11,13 +11,19 @@ import {
   IconButton,
   Checkbox
 } from "@material-tailwind/react";
+import { useState } from "react";
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/solid";
 
+type SubmitStatus = "idle" | "sending" | "success" | "error";
+
 export function ContactForm() {
+  const [status, setStatus] = useState<SubmitStatus>("idle");
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const payload = {
       firstName: formData.get("first-name"),
       lastName: formData.get("last-name"),
@@ -27,25 +33,34 @@ export function ContactForm() {
       consent: formData.get("consent") === "on",
     };
 
-    await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+    setStatus("sending");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      form.reset();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
     <section id="coordonnees" className="px-8 py-16">
       <div className="container mx-auto mb-20 text-center">
         <Typography variant="h1" className="mb-4 font-extrabold text-[#15315c]" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          Coordonnées
+          On en parle&nbsp;?
         </Typography>
         <Typography
           variant="lead"
-          className="mx-auto w-full lg:w-5/12 !text-gray-500" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
-          Je vous réponds rapidement pour organiser un échange personnalisé.
+          className="mx-auto w-full lg:w-5/12 !text-gray-700" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
+          Pas d&apos;engagement. Juste un premier échange pour faire le point
+          ensemble.
         </Typography>
       </div>
       <div>
@@ -165,20 +180,17 @@ export function ContactForm() {
                 </Typography>
                 <div className="-ml-3 mb-14 ">
                   {/* @ts-ignore */}
-                  <Radio
-                    required
-                    labelProps={{ className: "!text-gray-500 !font-medium" }}
-                    name="type"
-                    label="Protection sociale"
-                    value={'protection-sociale'}
-                    defaultChecked
-                  />
+                  <Radio required labelProps={{ className: "!text-gray-700 !font-medium" }} name="type" label="Préparer ma retraite" value={'preparer-retraite'} defaultChecked />
                   {/* @ts-ignore */}
-                  <Radio required labelProps={{ className: "!text-gray-500 !font-medium" }} name="type" label="Gestion de patrimoine" value={'gestion-patrimoine'} />
+                  <Radio required labelProps={{ className: "!text-gray-700 !font-medium" }} name="type" label="Protéger ma famille ou mes proches" value={'proteger-famille'} />
                   {/* @ts-ignore */}
-                  <Radio required labelProps={{ className: "!text-gray-500 !font-medium" }} name="type" label="Retraite et fiscalité" value={'retraite-et-fiscalite'} />
+                  <Radio required labelProps={{ className: "!text-gray-700 !font-medium" }} name="type" label="Protéger mon activité professionnelle" value={'proteger-activite'} />
                   {/* @ts-ignore */}
-                  <Radio required labelProps={{ className: "!text-gray-500 !font-medium" }} name="type" label="Autre" value={'autre'} />
+                  <Radio required labelProps={{ className: "!text-gray-700 !font-medium" }} name="type" label="Optimiser ma fiscalité" value={'optimiser-fiscalite'} />
+                  {/* @ts-ignore */}
+                  <Radio required labelProps={{ className: "!text-gray-700 !font-medium" }} name="type" label="Transmettre mon patrimoine" value={'transmettre-patrimoine'} />
+                  {/* @ts-ignore */}
+                  <Radio required labelProps={{ className: "!text-gray-700 !font-medium" }} name="type" label="Je ne sais pas encore — j'aimerais faire le point" value={'faire-le-point'} />
                 </div>
                 {/* @ts-ignore */}
                 <Textarea
@@ -196,7 +208,7 @@ export function ContactForm() {
                     className: "!min-w-full mb-8",
                   }}
                 />
-                {/* <label className="mb-8 flex items-start gap-3 text-sm text-gray-600">
+                {/* <label className="mb-8 flex items-start gap-3 text-sm text-gray-700">
                   <input
                     type="checkbox"
                     name="consent"
@@ -209,7 +221,7 @@ export function ContactForm() {
                   </span>
                 </label> */}
 
-                {/* <div className="mb-8 flex items-start gap-3 text-sm text-gray-600">
+                {/* <div className="mb-8 flex items-start gap-3 text-sm text-gray-700">
                   <input
                     type="checkbox"
                     name="consent"
@@ -217,12 +229,12 @@ export function ContactForm() {
                     required
                     className="mt-1 rounded border-gray-300 accent-[#15315c]"
                   />
-                  <label className="text-sm text-gray-600" htmlFor="consent">
+                  <label className="text-sm text-gray-700" htmlFor="consent">
                     * J&apos;accepte d&apos;être recontacté(e) et que mes données
                     soient enregistrées afin de traiter ma demande.
                   </label>
                 </div> */}
-                <div className="mb-8 flex items-center flex-row gap-1 text-sm text-gray-600">
+                <div className="mb-8 flex items-center flex-row gap-1 text-sm text-gray-700">
                   {/* @ts-ignore */}
                   <Checkbox
                     name="consent"
@@ -230,15 +242,27 @@ export function ContactForm() {
                     required
                     className="h-6 w-6 rounded-lg border-gray-900/20 transition-all"
                   />
-                  <label htmlFor="consent" className="ml-2 text-sm text-gray-600">
+                  <label htmlFor="consent" className="ml-2 text-sm text-gray-700">
                     <span className="text-[#ff0000]">*</span> J&apos;accepte d&apos;être recontacté(e) et que mes données
                     soient enregistrées afin de traiter ma demande.
                   </label>
                 </div>
 
+                {status === "success" && (
+                  <p role="status" className="mb-4 text-sm font-medium text-green-700">
+                    Merci, votre message a bien été envoyé. Je vous réponds
+                    rapidement.
+                  </p>
+                )}
+                {status === "error" && (
+                  <p role="alert" className="mb-4 text-sm font-medium text-red-700">
+                    L&apos;envoi a échoué. Réessayez ou écrivez-moi directement à
+                    agencea2p.guillaume.duc@axa.fr.
+                  </p>
+                )}
                 <div className="w-full flex justify-end">
-                  <Button type="submit" className="w-full md:w-fit bg-[#15315c] hover:bg-[#15315c]/90 text-white" size="md" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                    Envoyer
+                  <Button type="submit" disabled={status === "sending"} className="w-full md:w-fit bg-[#15315c] hover:bg-[#15315c]/90 text-white" size="md" placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                    {status === "sending" ? "Envoi en cours…" : "Envoyer"}
                   </Button>
                 </div>
               </form>

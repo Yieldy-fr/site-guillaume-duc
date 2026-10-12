@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import {
   Navbar as MTNavbar,
   Collapse,
@@ -11,20 +12,25 @@ import {
   Bars3Icon,
   BookOpenIcon,
   LightBulbIcon,
-  PhoneIcon,
-  HeartIcon
+  HeartIcon,
+  ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 
 const NAV_MENU = [
   {
-    name: "Biographie",
+    name: "Mon approche",
     icon: BookOpenIcon,
     href: "#biographie",
   },
   {
-    name: "Expertise",
+    name: "Accompagnement",
     icon: LightBulbIcon,
     href: "#expertise",
+  },
+  {
+    name: "Mes engagements",
+    icon: ShieldCheckIcon,
+    href: "#valeurs",
   },
   {
     name: "Partenaires",
@@ -69,9 +75,12 @@ export function Navbar() {
   return (
     <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50 bg-[#fff1e6]"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
       <div className="container mx-auto flex items-center justify-between">
-        <Typography className="text-lg text-[#15315c] font-black"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          Cabinet Guillaume&nbsp;DUC
-        </Typography>
+        <a href="#accueil" className="flex items-center gap-3">
+          <Image src="/logos/logo_axa.svg" alt="AXA" width={40} height={40} className="h-10 w-10 object-contain" />
+          <Typography className="text-lg text-[#15315c] font-black"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            Cabinet Guillaume&nbsp;DUC
+          </Typography>
+        </a>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href}>
@@ -83,7 +92,7 @@ export function Navbar() {
         </ul>
         <div className="hidden items-center gap-2 lg:flex">
           <a href="#coordonnees">
-            <Button className="bg-[#15315c] hover:bg-[#15315c]/90 text-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Prendre rendez-vous</Button>
+            <Button className="bg-[#15315c] hover:bg-[#15315c]/90 text-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Faire le point ensemble</Button>
           </a>
         </div>
         <IconButton
@@ -110,7 +119,7 @@ export function Navbar() {
           </ul>
           <div className="mt-6 mb-4 flex items-center gap-2">
             <a href="#coordonnees">
-              <Button className="bg-[#15315c] hover:bg-[#15315c]/90 text-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Prendre rendez-vous</Button>
+              <Button className="bg-[#15315c] hover:bg-[#15315c]/90 text-white"  placeholder={undefined} onResize={undefined} onResizeCapture={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Faire le point ensemble</Button>
             </a>
           </div>
         </div>
